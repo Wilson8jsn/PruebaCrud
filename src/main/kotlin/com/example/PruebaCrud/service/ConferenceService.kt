@@ -17,8 +17,6 @@ class ConferenceService {
     @Autowired
     lateinit var conferenceRepository: ConferenceRepository
 
-    @Autowired
-    lateinit var assistantRepository: AssistantRepository
 
 
     fun list ():List<Conference>{
