@@ -1,9 +1,5 @@
 package com.example.PruebaCrud.controller
 
-
-
-
-
 import com.example.PruebaCrud.model.Conference
 import com.example.PruebaCrud.service.ConferenceService
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,8 +13,8 @@ class ConferenceController {
     @Autowired
     lateinit var conferenceService: ConferenceService
     @GetMapping
-    fun list (): ResponseEntity<*> {
-        return ResponseEntity(conferenceService.list(), HttpStatus.OK)
+    fun list ():List <Conference>{
+        return conferenceService.list()
     }
     @PostMapping
     fun save (@RequestBody conference: Conference): ResponseEntity<Conference> {

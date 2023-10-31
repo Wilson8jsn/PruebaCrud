@@ -2,10 +2,8 @@ package com.example.PruebaCrud.service
 
 
 
-
-
-
 import com.example.PruebaCrud.model.Conference
+
 import com.example.PruebaCrud.repository.ConferenceRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -24,13 +22,10 @@ class ConferenceService {
     }
 
     fun save(conference: Conference): Conference {
-        try{
-            conferenceRepository.findById(conference.id)
-                ?:throw Exception("Id del cliente no existe")
+        try {
             return conferenceRepository.save(conference)
-        }
-        catch (ex:Exception){
-            throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
+        } catch (ex: Exception) {
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, ex.message)
         }
     }
 
@@ -40,9 +35,8 @@ class ConferenceService {
                 ?: throw Exception("ID no existe")
 
             return conferenceRepository.save(conference)
-        }
-        catch (ex:Exception){
-            throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
+        } catch (ex: Exception) {
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, ex.message)
         }
     }
 }

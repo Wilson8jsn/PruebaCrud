@@ -16,8 +16,8 @@ class AssistantController {
     @Autowired
     lateinit var assistantService: AssistantService
     @GetMapping
-    fun list (): ResponseEntity<*> {
-        return ResponseEntity(assistantService.list(), HttpStatus.OK)
+    fun list ():List <Assistant>{
+        return assistantService.list()
     }
     @PostMapping
     fun save (@RequestBody assistant: Assistant): ResponseEntity<Assistant> {

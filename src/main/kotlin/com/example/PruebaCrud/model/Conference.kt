@@ -21,6 +21,6 @@ class Conference {
     @Column(name = "city")
     var city: String? = null
 
-    @Column(name = "total_assistants")
-    var total_assistants: Int? = null
+    @Column(name = "totalassistants")
+    var totalassistants: Int? = null
 }
