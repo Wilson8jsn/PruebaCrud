@@ -3,7 +3,7 @@ package com.example.PruebaCrud.service
 
 
 import com.example.PruebaCrud.model.Conference
-
+import com.example.PruebaCrud.repository.AssistantRepository
 import com.example.PruebaCrud.repository.ConferenceRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -17,15 +17,22 @@ class ConferenceService {
     @Autowired
     lateinit var conferenceRepository: ConferenceRepository
 
+    @Autowired
+    lateinit var assistantRepository: AssistantRepository
+
+
     fun list ():List<Conference>{
         return conferenceRepository.findAll()
     }
 
-    fun save(conference: Conference): Conference {
+    fun save(conference: Conference): Conference{
         try {
+            conferenceRepository.findById(conference.id)
+                ?: throw Exception("Id del cliente no encontrada")
             return conferenceRepository.save(conference)
-        } catch (ex: Exception) {
-            throw ResponseStatusException(HttpStatus.NOT_FOUND, ex.message)
+        }catch (ex : Exception){
+            throw ResponseStatusException(
+                HttpStatus.NOT_FOUND, ex.message, ex)
         }
     }
 

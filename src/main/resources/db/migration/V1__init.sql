@@ -1,14 +1,13 @@
 CREATE TABLE IF NOT EXISTS conference (
-    id SERIAL PRIMARY KEY,
-    description VARCHAR(50),
+   id SERIAL PRIMARY KEY,
+   description VARCHAR(50),
     city VARCHAR(50),
-    totalassistants INT
+    total_assistants INT
     );
 
 CREATE TABLE IF NOT EXISTS assistant (
     id SERIAL PRIMARY KEY,
-    fullname VARCHAR(50),
+    full_name VARCHAR(50),
     role VARCHAR(50),
-    conferenceid INT,
-    FOREIGN KEY (conferenceid) REFERENCES conference(id)
+    conference_id INT
     );

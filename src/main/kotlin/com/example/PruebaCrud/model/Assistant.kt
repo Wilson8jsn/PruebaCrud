@@ -12,15 +12,8 @@ import jakarta.persistence.Table;
 class Assistant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false)
     var id: Long? = null
-
-    @Column(name = "fullname")
-    var fullname : String? = null
-
-    @Column(name = "role")
+    var full_name : String? = null
     var role: String? = null
-
-    @Column(name = "conferenceid")
-    var conferenceid: Int? = null
+    var conference_id: Int? = null
 }
