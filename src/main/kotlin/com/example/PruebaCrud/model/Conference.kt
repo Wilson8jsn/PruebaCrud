@@ -15,5 +15,5 @@ class Conference {
     var id: Long? = null
     var description : String? = null
     var city: String? = null
-    var total_assistants: Int? = null
+    var total_assistant: Int? = null
 }
